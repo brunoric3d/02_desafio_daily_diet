@@ -1,18 +1,24 @@
 import { ThemeProvider } from 'styled-components/native';
-import theme from '@theme/index';
-import { useFonts, NunitoSans_400Regular, NunitoSans_700Bold } from '@expo-google-fonts/nunito-sans'
+import { useFonts, Roboto_400Regular, Roboto_700Bold } from '@expo-google-fonts/roboto'
+import { StatusBar, Text, View } from 'react-native';
+import { NativeBaseProvider, Box } from 'native-base'
+import { Loading } from '@components/Loading';
+import { THEME } from '@theme/index';
+import { SignIn } from '@screens/SignIn';
+import { SignUp } from '@screens/SignUp';
 import { Routes } from '@routes/index';
 
 export default function App() {
-  const [fontsLoaded] = useFonts({ NunitoSans_400Regular, NunitoSans_700Bold });
+  const [fontsLoaded] = useFonts({ Roboto_400Regular, Roboto_700Bold });
   return (
-    <ThemeProvider theme={theme}>
+    <NativeBaseProvider theme={THEME}>
+      <StatusBar
+        barStyle={'light-content'}
+        backgroundColor='transparent'
+        translucent
+      />
+      {fontsLoaded && <Routes />}
 
-      {
-        fontsLoaded ?
-          <Routes /> : <></>
-
-      }
-    </ThemeProvider>
+    </NativeBaseProvider>
   );
 }

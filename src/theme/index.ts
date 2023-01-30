@@ -1,33 +1,37 @@
-export default {
-  COLORS: {
-    WHITE: '#FFFFFF',
-
-    GREEN_LIGHT: '#E5F0DB',
-    GREEN_MID: '#CBE4B4',
-    GREEN_DARK: '#639339',
-
-    RED_LIGHT: '#F4E6E7',
-    RED_MID: '#F3BABD',
-    RED_DARK: '#BF3B44',
-
-    GRAY_1: '#1B1D1E',
-    GRAY_2: '#333638',
-    GRAY_3: '#5C6265',
-    GRAY_4: '#B9BBBC',
-    GRAY_5: '#DDDEDF',
-    GRAY_6: '#EFF0F0',
-    GRAY_7: '#FAFAFA',
+import { extendTheme } from 'native-base'
+export const THEME = extendTheme({
+  colors: {
+    green: {
+      700: '#00875F',
+      500: '#00B37E',
+    },
+    gray: {
+      700: '#121214',
+      600: '#202024',
+      500: '#29292E',
+      400: '#323238',
+      300: '#7C7C8A',
+      200: '#C4C4CC',
+      100: '#E1E1E6'
+    },
+    white: '#FFFFFF',
+    red: {
+      500: '#F75A68'
+    }
   },
-  FONT_FAMILY: {
-    REGULAR: 'NunitoSans_400Regular',
-    BOLD: 'NunitoSans_700Bold'
+  fonts: {
+    heading: 'Roboto_700Bold',
+    body: 'Roboto_400Regular',
   },
-  FONT_SIZE: {
-    XS: 12,
-    SM: 14,
-    MD: 16,
-    LG: 18,
-    XL: 24,
-    XXL: 32,
+  fontSizes: {
+    xs: 12,
+    sm: 14,
+    md: 16,
+    lg: 18,
+    xl: 20,
+  },
+  sizes: {
+    14: 56,
+    33: 148
   }
-};
+})
