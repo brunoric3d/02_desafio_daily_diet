@@ -7,6 +7,8 @@ import { THEME } from '@theme/index';
 import { SignIn } from '@screens/SignIn';
 import { SignUp } from '@screens/SignUp';
 import { Routes } from '@routes/index';
+import { AuthContext, AuthContextProvider } from '@contexts/AuthContext';
+
 
 export default function App() {
   const [fontsLoaded] = useFonts({ Roboto_400Regular, Roboto_700Bold });
@@ -17,7 +19,10 @@ export default function App() {
         backgroundColor='transparent'
         translucent
       />
-      {fontsLoaded && <Routes />}
+      <AuthContextProvider>
+        {fontsLoaded && <Routes />}
+
+      </AuthContextProvider>
 
     </NativeBaseProvider>
   );
